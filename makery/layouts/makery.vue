@@ -1,7 +1,7 @@
 <template>
   <div>
     <custom-header :width="width"></custom-header>
-    <div :class="showleft">
+    <div class="side-navigation">
       <nuxt/>
     </div>
     <custom-footer></custom-footer>
@@ -17,29 +17,29 @@ export default{
         'custom-header' : CustomHeader,
         'custom-footer' : CustomFooter
     },
-    data:function(){
-        return {
-            width:0,
-        }
-    },
-    beforeMount() {
-        window.addEventListener('resize',()=>{
-            this.width=window.innerWidth;
-        });
-    },
-    mounted() {
-      this.width=window.innerWidth;
-    },
-    computed:{
-        showleft(){
-            return this.width>1024?'page-lg':'page-sm'
-        }
-    },
+    // data:function(){
+    //     return {
+    //         width:0,
+    //     }
+    // },
+    // beforeMount() {
+    //     window.addEventListener('resize',()=>{
+    //         this.width=window.innerWidth;
+    //     });
+    // },
+    // mounted() {
+    //   this.width=window.innerWidth;
+    // },
+    // computed:{
+    //     showleft(){
+    //         return this.width>1024?'page-lg':'page-sm'
+    //     }
+    // },
 }    
 </script>
 
 <style scoped>
-.page-lg{
+/* .page-lg{
   padding-left: 270px;
   padding-right: 100px;
 }
@@ -48,6 +48,19 @@ export default{
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 70px;
+} */
+
+.side-navigation {
+    padding-left: 270px;
+    padding-right: 100px;
+}
+
+@media screen and (max-width: 1024px) {
+    .side-navigation {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 70px;
+    }
 }
 </style>
 
